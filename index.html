@@ -10,6 +10,8 @@
     <title>Open Beak</title>
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css">
     <!--<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">-->
 
 
@@ -19,50 +21,76 @@
 
 
 </head>
-<body data-ng-app="myApp"  >
+<body data-ng-app="myApp">
 <div id="blog" ng-controller="formCtrl">
-<nav class="navbar  navbar-default ">
-    <form class="navbar-form">
-        <div class="form-group">
-            <div class="input-group">
-                <div class="input-group-addon"><span class="glyphicon glyphicon-chevron-down"></span></div>
-                <input type="text" class="form-control" id="title" ng-model="form.title" placeholder="Title">
-                <!--<div class="input-group-addon">.00</div>-->
+    <nav class="navbar  navbar-default navbar-fixed-top">
+        <form class="navbar-form navbar-left">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="glyphicon glyphicon-chevron-down"></span></div>
+                    <input type="text"
+                           class="form-control"
+                           id="title"
+                           ng-change="search()"
+                           ng-model="form.title" placeholder="Title">
+                    <!--<div class="input-group-addon">.00</div>-->
+                </div>
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="glyphicon glyphicon-chevron-down"></span></div>
+                    <input type="text"
+                           class="form-control"
+                           id="contain"
+                           ng-change="search()"
+                           ng-model="form.contain" placeholder="Contains">
+                    <!--<div class="input-group-addon">.00</div>-->
+                </div>
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="glyphicon glyphicon-chevron-down"></span></div>
+                    <input type="text" class="form-control datetimePicker"
+                           id="from"
+                           data-tag="from"
+                           placeholder="From"
+                           style="display: inline-block; width: 50%;">
+                    <input type="text"
+                           class="form-control datetimePicker"
+                           id="to"
+                           data-tag="to"
+                           placeholder="To"
+                           style="display: inline-block ;width: 50%;">
+                    <!--<div class="input-group-addon">.00</div>-->
+                </div>
             </div>
-            <div class="input-group">
-                <div class="input-group-addon"><span class="glyphicon glyphicon-chevron-down"></span></div>
-                <input type="text" class="form-control" id="contain" ng-model="form.contain" placeholder="Contains">
-                <!--<div class="input-group-addon">.00</div>-->
-            </div>
-            <div class="input-group">
-                <div class="input-group-addon"><span class="glyphicon glyphicon-chevron-down"></span></div>
-                <input type="text" class="form-control" id="from" ng-model="form.from" placeholder="From"
-                       style="display: inline-block; width: 50%;">
-                <input type="text" class="form-control" id="to" ng-model="form.to"  placeholder="To"
-                       style="display: inline-block ;width: 50%;">
-                <!--<div class="input-group-addon">.00</div>-->
-            </div>
-            <button type="submit" class="btn btn-primary">Search</button>
-        </div>
-    </form>
-</nav>
-<div ng-repeat="post in posts">
-    <h2>{{post.title}}</h2>
-    <p>{{post.text}}</p>
-</div>
+        </form>
+    </nav>
+
+    <div class="container"><div ng-repeat="post in relevantPosts">
+        <h2>{{post.title}}</h2>
+        <h5>{{post.time}}</h5>
+        <br>
+        <p>{{post.text}}</p>
+        ------------------------
+    </div></div>
 
 </div>
-<div style="height: 6000px; width: 100px;background-color: black" >
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <!--<script src="js/jquery.js"></script>-->
-        <!--<script src="js/bootstrap.min.js"></script>-->
-        <script src="js/angular.min.js"></script>
-        <script src="js/ang-control.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="http://momentjs.com/downloads/moment.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/linq.js/2.2.0.2/linq.min.js"></script>
+
+<!--<script src="js/jquery.js"></script>-->
+<!--<script src="js/bootstrap.min.js"></script>-->
+<script src="js/angular.min.js"></script>
+<script src="js/ang-control.js"></script>
 <script src="js/jquery.bootstrap-autohidingnavbar.min.js"></script>
 
 <script>
-    $("nav.navbar-navbar-top").autoHidingNavbar();
+    $("nav.navbar-fixed-top").autoHidingNavbar();
+    $('input.datetimePicker').datetimepicker().on("dp.change", function() {
+        var el = this;
+        angular.element('#blog').scope().form[el.dataset['tag']] = el.value.toString();
+        angular.element('#blog').scope().search();
+    });
 </script>
 </body>
 
