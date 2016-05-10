@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="mood,yoni mood,moody-user,moodyUser,mryonyon,yoni,מקור פתוח">
+    <meta name="author" content="Yoni Mood">
+    <title>Open Beak</title>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">-->
+
+
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+
+</head>
+<body data-ng-app="myApp"  >
+<div id="blog" ng-controller="formCtrl">
+<nav class="navbar  navbar-default ">
+    <form class="navbar-form">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-chevron-down"></span></div>
+                <input type="text" class="form-control" id="title" ng-model="form.title" placeholder="Title">
+                <!--<div class="input-group-addon">.00</div>-->
+            </div>
+            <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-chevron-down"></span></div>
+                <input type="text" class="form-control" id="contain" ng-model="form.contain" placeholder="Contains">
+                <!--<div class="input-group-addon">.00</div>-->
+            </div>
+            <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-chevron-down"></span></div>
+                <input type="text" class="form-control" id="from" ng-model="form.from" placeholder="From"
+                       style="display: inline-block; width: 50%;">
+                <input type="text" class="form-control" id="to" ng-model="form.to"  placeholder="To"
+                       style="display: inline-block ;width: 50%;">
+                <!--<div class="input-group-addon">.00</div>-->
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+</nav>
+<div ng-repeat="post in posts">
+    <h2>{{post.title}}</h2>
+    <p>{{post.text}}</p>
+</div>
+
+</div>
+<div style="height: 6000px; width: 100px;background-color: black" >
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!--<script src="js/jquery.js"></script>-->
+        <!--<script src="js/bootstrap.min.js"></script>-->
+        <script src="js/angular.min.js"></script>
+        <script src="js/ang-control.js"></script>
+<script src="js/jquery.bootstrap-autohidingnavbar.min.js"></script>
+
+<script>
+    $("nav.navbar-navbar-top").autoHidingNavbar();
+</script>
+</body>
+
+</html>
+
