@@ -8,7 +8,7 @@
     <meta name="description" content="מקור פתוח - Lorem Ipsum ושאר עניינים..  כי למה לסגור את הפה ">
     <meta name="author" content="Yoni Mood">
     <title>מקור פתוח</title>
-    <link rel="shortcut icon" type="image/x-icon" href="img/logo.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.ico"/>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css">
@@ -32,23 +32,23 @@
                 </div>
                 <div class="input-group">
                     <!--<div class="input-group-addon">-->
-                        <!--&lt;!&ndash;<span class="glyphicon glyphicon-chevron-down">&ndash;&gt;-->
-                        <!--</span></div>-->
+                    <!--&lt;!&ndash;<span class="glyphicon glyphicon-chevron-down">&ndash;&gt;-->
+                    <!--</span></div>-->
                     <input type="text"
                            class="form-control"
                            id="title"
-                           ng-change="search()"
+                           ng-change="searchApply()"
                            ng-model="form.title" placeholder="Title">
                     <!--<div class="input-group-addon">.00</div>-->
                 </div>
                 <div class="input-group">
                     <!--<div class="input-group-addon">-->
-                        <!--&lt;!&ndash;<span class="glyphicon glyphicon-chevron-down"></span>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<span class="glyphicon glyphicon-chevron-down"></span>&ndash;&gt;-->
                     <!--</div>-->
                     <input type="text"
                            class="form-control"
                            id="contain"
-                           ng-change="search()"
+                           ng-change="searchApply()"
                            ng-model="form.text" placeholder="Contains">
                 </div>
                 <div class="input-group">
@@ -87,11 +87,6 @@
 </div>
 
 
-
-
-
-
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="http://momentjs.com/downloads/moment.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -109,7 +104,7 @@
     $('input.datetimePicker').datetimepicker().on("dp.change", function () {
         var el = this;
         angular.element('#blog').scope().form[el.dataset['tag']] = el.value.toString();
-        angular.element('#blog').scope().search();
+        angular.element('#blog').scope().searchApply();
     });
 </script>
 </body>
