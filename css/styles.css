@@ -3,19 +3,37 @@ html,
 body {
     width: 100%;
     height: 100%;
+
     /*background-color: #2b96d1;*/
 }
-
-.container{
-    margin-top: 5%;
-
+.navbar{
+    background-color:  #D7CCC8;
 }
 
-
+.navbar-form .input-group{
+padding: 10px;
+}
+.container{
+    margin-top: 5%;
+}
+h2{
+    font-size: 300%;
+}
+p{
+font-size: 180%;
+}
 
 @media (max-width: 600px) {
+    .container{
+        margin-top: 35%;
+    }
+    h2{
+        font-size: 200%;
+    }
 
-
+    p{
+        font-size: 100%;
+    }
 }
 
 
