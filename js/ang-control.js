@@ -35,7 +35,7 @@ myApp.directive('test', function () {
 
 
 myApp.controller('formCtrl', ['$scope', '$http', function ($scope, $http) {
-    $scope.form = {text: "", title: "", from: "", to: "", orderby: ""};
+    $scope.form = {text: "", title: "", from: "", to: "", orderby: "time", reverse: true};
     $scope.relevantPosts = [];
     $http.get('data/data.json')
         .then(function (res) {
@@ -72,6 +72,11 @@ myApp.controller('formCtrl', ['$scope', '$http', function ($scope, $http) {
             x.time = new Date(x.time).toUTCString();
             return x;
         }).ToArray();
+    };
+
+    $scope.orderBy = function (predicate) {
+        $scope.form.orderby = predicate;
+        $scope.form.reverse = !$scope.form.reverse;
     };
 
     $scope.keyPressed = function (e) {
@@ -113,12 +118,13 @@ myApp.controller('formCtrl', ['$scope', '$http', function ($scope, $http) {
                 console.log("");
                 console.log("basicTest ended..");
 
-                $scope.posts=data;
+                $scope.posts = data;
                 $scope.search();
                 $scope.$apply();
             });
     };
 
-}]);
+}])
+;
 
 

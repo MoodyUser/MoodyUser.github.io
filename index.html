@@ -32,9 +32,14 @@
                     <img class="navbar-brand" src="img/logo.png" style="padding: 0px;">
                 </div>
                 <div class="input-group">
-                    <!--<div class="input-group-addon">-->
-                    <!--&lt;!&ndash;<span class="glyphicon glyphicon-chevron-down">&ndash;&gt;-->
-                    <!--</span></div>-->
+                    <div class="input-group-addon" ng-click="orderBy('title')">
+                        <span class="glyphicon"
+                              ng-class="{'glyphicon-chevron-up': form.orderby == 'title' && form.reverse}"
+                                ></span>
+                        <span class="glyphicon"
+                              ng-class="{'glyphicon-chevron-down': form.orderby == 'title' && !form.reverse}"
+                                ></span>
+                    </div>
                     <input type="text"
                            class="form-control"
                            id="title"
@@ -43,9 +48,14 @@
                     <!--<div class="input-group-addon">.00</div>-->
                 </div>
                 <div class="input-group">
-                    <!--<div class="input-group-addon">-->
-                    <!--&lt;!&ndash;<span class="glyphicon glyphicon-chevron-down"></span>&ndash;&gt;-->
-                    <!--</div>-->
+                    <div class="input-group-addon" ng-click="orderBy('text')">
+                        <span class="glyphicon"
+                              ng-class="{'glyphicon-chevron-up': form.orderby == 'text' && form.reverse}"
+                                ></span>
+                        <span class="glyphicon"
+                              ng-class="{'glyphicon-chevron-down': form.orderby == 'text' && !form.reverse}"
+                                ></span>
+                    </div>
                     <input type="text"
                            class="form-control"
                            id="contain"
@@ -53,8 +63,13 @@
                            ng-model="form.text" placeholder="Contains">
                 </div>
                 <div class="input-group">
-                    <div class="input-group-addon">
-                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    <div class="input-group-addon" ng-click="orderBy('time')">
+                        <span class="glyphicon"
+                              ng-class="{'glyphicon-chevron-up': form.orderby == 'time' && form.reverse}"
+                                ></span>
+                        <span class="glyphicon"
+                              ng-class="{'glyphicon-chevron-down': form.orderby == 'time' && !form.reverse}"
+                                ></span>
                     </div>
                     <input type="text" class="form-control datetimePicker"
                            id="from"
@@ -74,7 +89,7 @@
     </nav>
 
     <div class="container">
-        <div ng-repeat="post in relevantPosts">
+        <div ng-repeat="post in relevantPosts | orderBy :form.orderby:form.reverse">
             <h2 dir="auto">{{post.title}}</h2>
             <br>
             <h5 dir="auto">{{post.time}}</h5>

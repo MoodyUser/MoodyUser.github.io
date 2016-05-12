@@ -6,32 +6,41 @@ body {
 
     /*background-color: #2b96d1;*/
 }
-.navbar{
-    background-color:  #D7CCC8;
+
+.navbar {
+    background-color: #D7CCC8;
 }
 
-.navbar-form .input-group{
-padding: 10px;
+.navbar-form .input-group {
+    padding: 10px;
 }
-.container{
+
+.navbar-form .input-group .input-group-addon {
+    min-width: 50px;
+}
+
+.container {
     margin-top: 5%;
 }
-h2{
+
+h2 {
     font-size: 300%;
 }
-p{
-font-size: 180%;
+
+p {
+    font-size: 180%;
 }
 
 @media (max-width: 600px) {
-    .container{
+    .container {
         margin-top: 35%;
     }
-    h2{
+
+    h2 {
         font-size: 200%;
     }
 
-    p{
+    p {
         font-size: 100%;
     }
 }
