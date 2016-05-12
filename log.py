@@ -21,6 +21,7 @@ def save():
     with open(r'data/data.json' , encoding='UTF8') as data_file :
         posts = json.load(data_file)
         new_post = Post()
+        print(new_post.time)
         new_post.title = top.title_entry.get()
         new_post.text = top.entry_text.get("1.0","end-1c")
         new_post.types = ""
@@ -34,6 +35,7 @@ def save():
     print("")
     print(" Successful writing to data file.")
     print(" will you commit?")
+    print("")
     print("")
     print("-"*20)
 
