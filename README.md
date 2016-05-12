@@ -4,5 +4,5 @@ a personal blog at http://moodyuser.github.io.
 
 # Instructions
 
-    just open cmd go to dev folder on local pc enter 'p' to post and commit
-    or just 'python log.py'
+open terminal go to dev folder, enter 'p' to post and commit
+or just 'python log.py' for new post.
