@@ -25,7 +25,7 @@
 <div id="blog" ng-controller="formCtrl">
     <well></well>
     <test></test>
-    <nav class="navbar  navbar-default navbar-static-top">
+    <nav class="navbar  navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-form navbar-left">
                 <div class="navbar-header">
@@ -116,7 +116,7 @@
 <script src="js/jquery.bootstrap-autohidingnavbar.min.js"></script>
 
 <script>
-    $("nav.navbar-static-top").autoHidingNavbar();
+    $("nav.navbar-fixed-top").autoHidingNavbar();
     $('input.datetimePicker').datetimepicker().on("dp.change", function () {
         var el = this;
         angular.element('#blog').scope().form[el.dataset['tag']] = el.value.toString();
