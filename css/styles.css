@@ -3,46 +3,35 @@ html,
 body {
     width: 100%;
     height: 100%;
-
     /*background-color: #2b96d1;*/
 }
 
-.navbar {
-    background-color: #D7CCC8;
+.logo{
+    background: url('../img/logo-2.png') center center no-repeat;
+    background-size: 50px;
+}
+.highlighted{
+    background-color: yellow;
+}
+#esterEgg p{
+    display: inline;
 }
 
-.navbar-form .input-group {
-    padding: 10px;
+
+.curser {
+    padding: 0;
+    animation: blink 1s infinite;
 }
 
-.navbar-form .input-group .input-group-addon {
-    min-width: 50px;
+@keyframes blink {
+    to {
+        opacity: .0;
+    }
 }
 
-.container {
-    margin-top: 5%;
-}
-
-h2 {
-    font-size: 300%;
-}
-
-p {
-    font-size: 180%;
-}
 
 @media (max-width: 600px) {
-    .container {
-        margin-top: 35%;
-    }
 
-    h2 {
-        font-size: 200%;
-    }
-
-    p {
-        font-size: 100%;
-    }
 }
 
 

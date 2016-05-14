@@ -1,7 +1,7 @@
 /**
  * Created by Yoni Mood on 5/9/2016.
  */
-var myApp = angular.module('myApp', []).factory('$exceptionHandler', function () {
+var myApp = angular.module('myApp', ['ngSanitize']).factory('$exceptionHandler', function () {
     return function (exception, cause) {
         exception.message += ' (caused by "' + cause + '")';
         return exception;
@@ -33,9 +33,8 @@ myApp.directive('test', function () {
     };
 });
 
-
 myApp.controller('formCtrl', ['$scope', '$http', function ($scope, $http) {
-    $scope.form = {text: "", title: "", from: "", to: "", orderby: "time", reverse: true};
+    $scope.form = {both: "", text: "", title: "", from: "", to: "", orderby: "time", reverse: true};
     $scope.relevantPosts = [];
     $http.get('data/data.json')
         .then(function (res) {
@@ -49,6 +48,11 @@ myApp.controller('formCtrl', ['$scope', '$http', function ($scope, $http) {
     };
 
     $scope.search = function () {
+        var andor = " && ";
+        if ($scope.form.both != "") {
+            $scope.form.title = $scope.form.text = $scope.form.both;
+            andor = "||"
+        }
         var whereStr = [];
         var relevant = Enumerable.From($scope.posts);
         if ($scope.form.title != "") {
@@ -64,7 +68,7 @@ myApp.controller('formCtrl', ['$scope', '$http', function ($scope, $http) {
             whereStr.push(" new Date($.time) <  new Date('" + $scope.form.to + "')");
         }
         if (whereStr.length != 0) {
-            relevant = relevant.Where(whereStr.join(" && "));
+            relevant = relevant.Where(whereStr.join(andor));
             //.OrderBy("$."+$scope.form.orderby+"");
         }
         $scope.relevantPosts = relevant.Select(function (x) {
@@ -124,7 +128,78 @@ myApp.controller('formCtrl', ['$scope', '$http', function ($scope, $http) {
             });
     };
 
-}])
-;
+}]);
+
+myApp.controller('EsterEgg', ['$scope', '$interval', '$timeout', function ($scope, $interval, $timeout) {
+    $scope.changeableText = {value: ""};
+    $scope.immutableText = {value: ""};
+    $scope.curser = {value: ""};
+
+    var lines = [
+        "SQL",
+        "MongoDB",
+        "Android",
+        "Responsive Html",
+        "JavaScript",
+        "AngularJS",
+        "Node.js",
+        "Css",
+        "Git",
+        "BitBucket",
+        "Python",
+        "Full Stack"
+    ];
+    var current = 0;
+    var writeLines = function (p, line) {
+        var curser = 0;
+        var textAnim = $interval(function (index) {
+            if (index > line.length) {
+                $interval.cancel(textAnim);
+                $timeout(function () {
+                    deleteLine(p);
+                }, 3000);
+            } else {
+                if (line[curser] == "|") {
+                    p.value = p.value.substring(0, p.value.length - 1)
+                } else {
+                    p.value += line[curser];
+                }
+                curser++;
+            }
+        }, 200);
+    };
+    var deleteLine = function (p) {
+        var textAnim = $interval(function (index) {
+            if (p.value.length <= 0) {
+                $interval.cancel(textAnim);
+                if ((current + 1) < lines.length) {
+                    current++;
+                } else {
+                    current = 0;
+                }
+                writeLines($scope.changeableText, lines[current]);
+            } else {
+                p.value = p.value.substring(0, p.value.length - 1)
+            }
+        }, 80);
+    };
+    $timeout(function () {
+        $scope.immutableText.value = "yoni@mood:~$ ";
+        $scope.curser.value = "<b>|</b>";
+        $timeout(function () {
+            writeLines($scope.changeableText, lines[current])
+        }, 1000);
+    }, 1000 * 2);
+
+}]);
+
+myApp.filter('highlight', function ($sce) {
+    return function (text, phrase) {
+        if (phrase) text = text.replace(new RegExp('(' + phrase + ')', 'gi'),
+            '<span class="highlighted">$1</span>');
+
+        return $sce.trustAsHtml(text)
+    }
+});
 
 
