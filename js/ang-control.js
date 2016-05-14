@@ -34,7 +34,7 @@ myApp.directive('test', function () {
 });
 
 myApp.controller('formCtrl', ['$scope', '$http', function ($scope, $http) {
-    $scope.form = {both: "", text: "", title: "", from: "", to: "", orderby: "time", reverse: true};
+    $scope.form = {both: "", text: "", title: "", from: "", to: "", orderby: "time", reverse: false};
     $scope.relevantPosts = [];
     $http.get('data/data.json')
         .then(function (res) {
