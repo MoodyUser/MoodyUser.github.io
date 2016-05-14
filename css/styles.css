@@ -6,17 +6,26 @@ body {
     /*background-color: #2b96d1;*/
 }
 
-.logo{
+.logo {
     background: url('../img/logo-2.png') center center no-repeat;
     background-size: 50px;
-}
-.highlighted{
-    background-color: yellow;
-}
-#esterEgg p{
-    display: inline;
+    transform: rotate(0deg);
+    -webkit-transition: transform 2s; /* Safari */
+    transition: transform 1s;
+    transition-timing-function: cubic-bezier(0, 0, 0.58, 1);
 }
 
+.logo:hover {
+    transform: rotate(720deg);
+}
+
+.highlighted {
+    background-color: yellow;
+}
+
+#esterEgg p {
+    display: inline;
+}
 
 .curser {
     padding: 0;
@@ -28,7 +37,6 @@ body {
         opacity: .0;
     }
 }
-
 
 @media (max-width: 600px) {
 
