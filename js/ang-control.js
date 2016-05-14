@@ -49,11 +49,11 @@ myApp.controller('formCtrl', ['$scope', '$http', function ($scope, $http) {
 
     $scope.search = function () {
         var andor = " && ";
-        if ($scope.form.both != "") {
-            $scope.form.title = $scope.form.text = $scope.form.both;
-            andor = "||"
-        }
         var whereStr = [];
+        if ($scope.form.both != "") {
+            whereStr.push("$.title.toLowerCase().includes('" + $scope.form.both.toLowerCase() + "') ||" +
+                " $.text.toLowerCase().includes('" + $scope.form.both.toLowerCase() + "')");
+        }
         var relevant = Enumerable.From($scope.posts);
         if ($scope.form.title != "") {
             whereStr.push("$.title.toLowerCase().includes('" + $scope.form.title.toLowerCase() + "') ");

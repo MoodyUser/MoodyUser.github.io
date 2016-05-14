@@ -77,7 +77,7 @@
                  ng-repeat="post in relevantPosts | orderBy :form.orderby:form.reverse">
                 <div class="mdl-card__supporting-text">
                     <h4 dir="auto"
-                        ng-bind-html="post.title | highlight:form.title"></h4>
+                        ng-bind-html="post.title | highlight:form.both"></h4>
                 </div>
                 <!--<div class="mdl-card__media">-->
                 <!--<img class="article-image" src="img/logo.png" border="0" alt="">-->
@@ -91,7 +91,7 @@
                     <!--</div>-->
                 </div>
                 <div class="mdl-card__supporting-text">
-                    <p dir="auto" ng-bind-html="post.text | highlight:form.text"></p>
+                    <p dir="auto" ng-bind-html="post.text | highlight:form.both"></p>
                 </div>
             </div>
         </div>
