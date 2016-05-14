@@ -23,7 +23,7 @@ def save():
         new_post = Post()
         print(new_post.time)
         new_post.title = top.title_entry.get()
-        new_post.text = top.entry_text.get("1.0","end-1c")
+        new_post.text = top.entry_text.get("1.0","end-1c").replace('\n', ' ')
         new_post.types = ""
         posts.append(new_post.__dict__)
 
@@ -40,7 +40,7 @@ def save():
     print("-"*20)
 
 def gui():
-    top.iconbitmap(default='img/logo.ico')
+    top.iconbitmap(default='img/logo-2.ico')
     top.title_prompt = tkinter.Label(top, text="Title", anchor="w")
     top.title_entry = tkinter.Entry(top)
     top.entry_prompt = tkinter.Label(top, text="Entry", anchor="w")
