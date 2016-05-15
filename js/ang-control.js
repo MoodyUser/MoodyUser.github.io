@@ -136,12 +136,12 @@ myApp.controller('EsterEgg', ['$scope', '$interval', '$timeout', function ($scop
     $scope.curser = {value: ""};
 
     var lines = [
-        "SQL",
+        "Sql||QL",
         "MongoDB",
         "Android",
-        "Responsive Html",
+        "Rep|sponsive Html",
         "JavaScript",
-        "AngularJS",
+        "Angyk||ularJS",
         "Node.js",
         "Css",
         "Git",
