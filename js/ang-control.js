@@ -32,6 +32,18 @@ myApp.directive('test', function () {
     };
 });
 
+myApp.directive('toggle', function () {
+    return {
+        restrict: 'E',
+        replace: true,
+        link: function (scope, element, attrs) {
+            element.bind('click', function (event) {
+                element.toggleClass('cell-disappear-on');
+            });
+        }
+    };
+});
+
 myApp.controller('formCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.form = {both: "", text: "", title: "", from: "", to: "", orderby: "time", reverse: true};
     $scope.relevantPosts = [];

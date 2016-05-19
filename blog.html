@@ -78,10 +78,9 @@
                  ng-class="{{$index}}%2==0 ? 'blog-image-right' : 'blog-image-left'"
                  src="{{post.image}}" alt="">
 
-            <div class="mdl-grid blog-max-width">
-                <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-card mdl-shadow--4dp cell-disappear"
-                     ng-class="{{$index}}%2==0  ?'cell-disappear-right':'cell-disappear-left'"
-                        >
+            <toggle class="mdl-grid blog-max-width" >
+                <toggle class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-card mdl-shadow--4dp cell-disappear"
+                      >
                     <div class="mdl-card__supporting-text">
                         <h4 dir="auto"
                             ng-bind-html="post.title | highlight:form.both"></h4>
@@ -97,8 +96,8 @@
                     <div class="mdl-card__supporting-text">
                         <p dir="auto" ng-bind-html="post.text | highlight:form.both"></p>
                     </div>
-                </div>
-            </div>
+                </toggle>
+            </toggle>
         </div>
         <!--<footer class="mdl-mini-footer">-->
         <!--<div class="mdl-mini-footer__left-section">-->

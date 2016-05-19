@@ -47,7 +47,7 @@ img.blog-image-left  {
     transition-timing-function: ease-in;
 }
 
-.cell-disappear-left:active {
+.cell-disappear-on {
     background: transparent;
 }
 
