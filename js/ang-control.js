@@ -21,7 +21,6 @@ myApp.directive('well', function () {
     };
 });
 
-
 myApp.directive('test', function () {
     return {
         restrict: 'E',
@@ -34,13 +33,23 @@ myApp.directive('test', function () {
 });
 
 myApp.controller('formCtrl', ['$scope', '$http', function ($scope, $http) {
-    $scope.form = {both: "", text: "", title: "", from: "", to: "", orderby: "time", reverse: false};
+    $scope.form = {both: "", text: "", title: "", from: "", to: "", orderby: "time", reverse: true};
     $scope.relevantPosts = [];
-    $http.get('data/data.json')
-        .then(function (res) {
-            $scope.posts = res.data;
+
+    $.ajax({
+        type: "POST",
+        url: "http://moodpics.bugs3.com/getData.php",
+        data: {pass: "myPass"},
+        dataType: 'json',
+        success: function (res) {
+            $scope.posts = res;
             $scope.searchApply();
-        });
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            alert('request failed');
+        },
+        dataType: "json"
+    });
 
     $scope.searchApply = function () {
         $scope.search();
@@ -73,7 +82,7 @@ myApp.controller('formCtrl', ['$scope', '$http', function ($scope, $http) {
         }
         $scope.relevantPosts = relevant.Select(function (x) {
             x.readMore = true;
-            x.time = new Date(x.time).toUTCString();
+            x.timestamp = (new Date(parseFloat(x.timestamp))).toTimeString();
             return x;
         }).ToArray();
     };
@@ -201,5 +210,3 @@ myApp.filter('highlight', function ($sce) {
         return $sce.trustAsHtml(text)
     }
 });
-
-
