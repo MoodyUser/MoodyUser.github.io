@@ -58,7 +58,7 @@ myApp.controller('formCtrl', ['$scope', '$http', function ($scope, $http) {
             $scope.searchApply();
         },
         error: function (xhr, textStatus, errorThrown) {
-            alert('request failed');
+            alert('free servers are not reliable try loading the page again..');
         },
         dataType: "json"
     });
@@ -94,7 +94,7 @@ myApp.controller('formCtrl', ['$scope', '$http', function ($scope, $http) {
         }
         $scope.relevantPosts = relevant.Select(function (x) {
             x.readMore = true;
-            x.timestamp = (new Date(parseFloat(x.timestamp))).toTimeString();
+            x.timestamp = (new Date(parseFloat(x.timestamp))).toDateString();
             return x;
         }).ToArray();
     };
