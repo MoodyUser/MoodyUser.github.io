@@ -58,7 +58,7 @@ myApp.controller('formCtrl', ['$scope', '$http', function ($scope, $http) {
             $scope.searchApply();
         },
         error: function (xhr, textStatus, errorThrown) {
-            alert('free servers are not reliable try loading the page again..');
+           // alert('free servers are not reliable try loading the page again..');
         },
         dataType: "json"
     });
