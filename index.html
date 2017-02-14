@@ -38,43 +38,9 @@
 </head>
 
 <body data-ng-app="myApp">
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
-        <div class="mdl-layout__header-row">
-          <span class="android-title mdl-layout-title">
-            <div class="android-logo-image logo"></div>
-          </span>
-            <!-- Add spacer, to align navigation to the right in desktop -->
-            <div class="android-header-spacer mdl-layout-spacer"></div>
-            <!-- Navigation -->
-            <div class="android-navigation-container">
-                <nav class="android-navigation mdl-navigation">
-                    <a class="mdl-navigation__link mdl-typography--text-uppercase" href="index.html">About</a>
-                    <a class="mdl-navigation__link mdl-typography--text-uppercase" href="#">Journal</a>
-                    <a class="mdl-navigation__link mdl-typography--text-uppercase" href="mailto:yonispark@gmail.com">Contact</a>
-                </nav>
-            </div>
-        </div>
-    </div>
-    <div class="mdl-layout__drawer mdl-layout--small-screen-only">
-        <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-                <a class="mdl-navigation__link" href="index.html">About</a>
-                <a class="mdl-navigation__link" href="#">Blog</a>
-                <a class="mdl-navigation__link" href="contact.html">Contact</a>
-            </div>
-        </nav>
-    </div>
-    <div class="mdl-layout__drawer mdl-layout--small-screen-only">
-        <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-                <a class="mdl-navigation__link" href="index.html">About</a>
-                <a class="mdl-navigation__link" href="">Journal</a>
-                <a class="mdl-navigation__link" href="mailto:yonispark@gmail.com">Contact</a>
-            </div>
-        </nav>
-    </div>
-    <main class="mdl-layout__content">
+
+<br><br><br><br>
+    <main class="mdl-layout__content" style="width:100%;">
         <div class="mdl-grid blog-max-width">
             <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp">
                 <div class="mdl-card__title">
@@ -85,53 +51,45 @@
                          style="width: 100%; background-color: white;">
                 </div>
                 <div class="mdl-cell mdl-cell--12-col mdl-cell--4-col-tablet mdl-card">
-                    <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Introduction</h3>
 
-                    <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding"
+				<div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding"
                          style="min-height: 300px">
                         <div>
-                            <p>Hi there, I'm Yoni.<br>
-                                I like software and trying to learn new ones while sharpening the ones I already know..
-                                in a way being a sort of handy full stack with a lot of tools is the goal..
-                                <br>you're welcome to see my <a
+                            <p>Hey, I'm <a
                                     href="https://drive.google.com/open?id=0B3H5YspwjDEPNENkV1hPWThxdUE"
-                                    target="_blank">CV</a> browse my work at <a href="https://github.com/MoodyUser"
-                                                                                target="_blank">GitHub</a> or download
-                                my apps at <a
-                                        href="https://play.google.com/store/apps/developer?id=Sagi%20Reuven%20and%20Yoni%20Mood&amp;hl=en"
-                                        target="_blank">Google Play</a>.<br>in order to use my services or maybe post here :) you will need to
-                                contact me </p>
+                                    target="_blank"> Yoni Mood.</a><br>
+									
+With a Practical Engineer's degree in software development, and hands-on experience using <a href="https://github.com/MoodyUser" target="_blank"> .Net Java Python JavaScript CSS </a>
+to create and implement software applications, I am confident I will be an asset to your organization.
+I enjoy being challenged and working on projects that require me to work outside my comfort and
+knowledge set, as continuing to learn new languages and development techniques are important to
+me and the success of my product.
+<br>
+<ul>
+	<li>Highly skilled in designing, testing, and developing software</li>
+	<li>Thorough understanding of data structures and algorithms</li>
+	<li>Knowledgeable of back-end development best practices</li>
+	<li>Hands-on software troubleshooting experience</li>
+	<li>Proven track record of proper documentation for future maintenance and upgrades</li>
+</ul>
 
-                        </div>
                         <div id="esterEgg" ng-controller="EsterEgg">
                             <p class="write-text line" ng-bind='immutableText.value'></p>
-
+							
+							<p class="write-text line" ng-bind='contactText.value'></p>
                             <p class="write-text line" ng-bind='changeableText.value'></p>
 
                             <p class="write-text curser line" ng-bind-html="curser.value"></p>
                         </div>
+						<br>
+						
                     </div>
                 </div>
             </div>
 
         </div>
-        <!--<footer class="mdl-mini-footer">-->
-        <!--<div class="mdl-mini-footer__left-section">-->
-        <!--<div class="mdl-logo">Simple portfolio website</div>-->
-        <!--</div>-->
-        <!--<div class="mdl-mini-footer__right-section">-->
-        <!--<ul class="mdl-mini-footer__link-list">-->
-        <!--<li><a href="#">Help</a></li>-->
-        <!--<li><a href="#">Privacy & Terms</a></li>-->
-        <!--</ul>-->
-        <!--</div>-->
-        <!--</footer>-->
-
+		
     </main>
-
-
-</div>
-
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
