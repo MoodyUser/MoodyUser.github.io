@@ -175,12 +175,13 @@ myApp.controller('EsterEgg', ['$scope', '$interval', '$timeout', function ($scop
 		"Drupal",
 		"Full Stack"
     ];
+	var current = 0;
 	var writeLine = function (p, line) {
         var curser = 0;
-		debugger;
         var textAnim = $interval(function (index) {
             if (index > line.length) {
                 $interval.cancel(textAnim);
+				writeLines($scope.changeableText, lines[current]);
             } else {
                 if (line[curser] == "|") {
                     p.value = p.value.substring(0, p.value.length - 1)
@@ -191,7 +192,7 @@ myApp.controller('EsterEgg', ['$scope', '$interval', '$timeout', function ($scop
             }
         }, 90);
     };
-	var current = 0;
+	
     var writeLines = function (p, line) {
         var curser = 0;
         var textAnim = $interval(function (index) {
@@ -232,7 +233,7 @@ myApp.controller('EsterEgg', ['$scope', '$interval', '$timeout', function ($scop
 			writeLine($scope.contactText, "I can be reached anytime via my and|||cell phone, +97252-30444|354 or via email at yonimdo@gmail.com. Thank you for your time and consideration. I look forward to speaking with you about your ideas. or ");
         }, 1000);
 		$timeout(function () {
-            writeLines($scope.changeableText, lines[current]);
+            
         }, 19000);
     }, 1000 * 2);
 
