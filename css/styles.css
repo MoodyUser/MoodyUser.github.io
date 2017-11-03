@@ -29,16 +29,16 @@ img.blog-image {
     -moz-box-shadow: 2px 2px 3px rgba(135, 139, 144, 0.1);
     box-shadow: 2px 2px 3px rgba(135, 139, 144, 0.1);
 }
-img.blog-image-right  {
+
+img.blog-image-right {
     right: 10%;
     transform: rotate(30deg);
 }
 
-img.blog-image-left  {
+img.blog-image-left {
     left: 10%;
     transform: rotate(-30deg);
 }
-
 
 .cell-disappear {
     background: white;
@@ -52,10 +52,8 @@ img.blog-image-left  {
 }
 
 .cell-disappear-right:active {
-    background:  transparent;
+    background: transparent;
 }
-
-
 
 .highlighted {
     background-color: yellow;
@@ -76,8 +74,18 @@ img.blog-image-left  {
     }
 }
 
-@media (max-width: 600px) {
+svg {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1
+}
 
+@media (max-width: 600px) {
+    svg {
+        position: relative;
+        max-height: 300px;
+    }
 }
 
 
