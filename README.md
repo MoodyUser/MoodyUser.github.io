@@ -1,3 +1,3 @@
 # MoodyUser.github.io
 
-a play site at http://yonimdo.github.io.
+My personal CV site at http://yonimdo.github.io.
