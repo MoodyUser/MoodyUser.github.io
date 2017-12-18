@@ -6,7 +6,7 @@
 
 
 body {
-    background: radial-gradient(circle at center, gray 0, black 100%);;
+    background: radial-gradient(circle at bottom, #d0d0d0 0, white 100%);;
     font-family: 'Poiret One', cursive;
     font-weight: bold;
     letter-spacing: 1px;
@@ -116,7 +116,7 @@ ul {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    min-height: 120px;
+    min-height: 130px;
 }
 
 .about-wrapper h2 {
@@ -146,15 +146,6 @@ h2 {
     padding: 0 15% 0 15%;
 }
 
-.protfolio-in-wrapper ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-    width: 100%;
-    margin-bottom: 50px;
-}
 
 .protfolio-in-wrapper li {
     width: 100%;
@@ -253,11 +244,15 @@ h2 {
     }
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1200px) {
     .page {
         width: 90%;
         margin-right: 5%;
         margin-left: 5%;
+    }
+
+    .about-wrapper {
+        min-height: 200px;
     }
 }
 
